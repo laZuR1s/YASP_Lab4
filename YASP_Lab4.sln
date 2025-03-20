@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YASP_Lab4", "YASP_Lab4\YASP_Lab4.vcxproj", "{98A98E03-8849-44C6-A505-B649FBF3AE16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Debug|x64.ActiveCfg = Debug|x64
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Debug|x64.Build.0 = Debug|x64
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Debug|x86.ActiveCfg = Debug|Win32
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Debug|x86.Build.0 = Debug|Win32
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Release|x64.ActiveCfg = Release|x64
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Release|x64.Build.0 = Release|x64
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Release|x86.ActiveCfg = Release|Win32
+		{98A98E03-8849-44C6-A505-B649FBF3AE16}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E19BF195-D990-4421-9C24-039767DC8B85}
+	EndGlobalSection
+EndGlobal
