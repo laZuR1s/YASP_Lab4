@@ -1,8 +1,14 @@
 ﻿//5. Заменить каждое число на корень из суммы квадрата текущего числа
 //и квадрата первого числа.Ответ округлить до целых.
 //Лазарев Александр 9 группа
-#include "Vector.h";
 
+import Vector;
+import <vector>;
+import <Windows.h>;
+import <iostream>;
+import <fstream>;
+import <string>;
+import <algorithm>;
 
 std::fstream file_gen_for(std::string filename, int N, int M)
 {
@@ -19,18 +25,21 @@ std::fstream file_gen_for(std::string filename, int N, int M)
     else std::cerr << "Ошибка: не удалось открыть файл " << filename << std::endl;
     return file;
 }
+
 std::fstream file_gen_gen(std::string filename, int N, int M)
 {
     std::fstream file(filename, std::ios::in | std::ios::out | std::ios::trunc);
     if (file.is_open())
     {
-        std::generate_n(std::ostream_iterator<int>(file, " "), N, [M]() { return (rand() % (M - (-1 * M) + 1) + (-1 * M)); });
+
+        std::generate_n(std::ostream_iterator<int>(file, " "), N, [M]() { return (rand() % (M - (-1 * M) + 1) + (-1 * M)); });  //
         file.seekg(0);
 
     }
     else std::cerr << "Ошибка: не удалось открыть файл " << filename << std::endl;
     return file;
 }
+
 void read_and_check(int& input, int min = 0, int max = MAXINT)
 {
     std::cout << "-> ";
@@ -42,6 +51,7 @@ void read_and_check(int& input, int min = 0, int max = MAXINT)
         std::cout << "-> ";
     }
 }
+
 std::string get_file_name()
 {
     const std::string CANT = "'|\"\\/*:?<>+%!@";
@@ -68,18 +78,20 @@ std::string get_file_name()
 
     return fname;
 }
+
 int fill_menu()
 {
-    std::cout << "Выберете способ заполнения файла\n"
+    std::cout << "Выберите способ заполнения файла\n"
         << "1. Используя цикл\n"
         << "2. Используя generate_n\n";
     int choice{};
     read_and_check(choice, 1, 2);
     return choice;
 }
+
 int action_menu()
 {
-    std::cout << "Выберете действие\n"
+    std::cout << "Выберите действие\n"
         << "1. Модифицировать список\n"
         << "2. Найти сумму элементов списка\n"
         << "3. Найти среднее арифметическое элементов списка\n"
@@ -89,9 +101,10 @@ int action_menu()
     read_and_check(choice, 1, 5);
     return choice;
 }
+
 int mod_menu()
 {
-    std::cout << "Выберете вариант modify\n"
+    std::cout << "Выберите вариант modify\n"
         << "1.for\n"
         << "2.transform\n"
         << "3.for_each\n";
@@ -127,6 +140,7 @@ std::pair<std::vector<int>::iterator, std::vector<int>::iterator> get_borders(VE
     }
     return result;
 }
+
 std::vector<int> mod(VECTOR& vector)
 {
     std::pair<std::vector<int>::iterator, std::vector<int>::iterator> borders = get_borders(vector);
@@ -137,9 +151,10 @@ std::vector<int> mod(VECTOR& vector)
         return vector.modify_transform(borders.first, borders.second);
     return vector.modify_foreach(borders.first, borders.second);
 }
+
 int output_menu()
 {
-    std::cout << "Выберете способ вывода контейнера\n"
+    std::cout << "Выберите способ вывода контейнера\n"
         << "1. В консоль\n"
         << "2. В файл\n";
     int choice{};
@@ -165,7 +180,9 @@ int main()
         read_and_check(M, 1);
         std::string file_name = get_file_name();
         std::fstream file = fill_menu() == 1 ? file_gen_for(file_name, N, M) : file_gen_gen(file_name, N, M);
-        VECTOR vector; vector.fill(file); file.close();
+        VECTOR vector; 
+        vector.fill(file);
+        file.close();
         std::cout << "Получившийся список:";  vector.print(); std::cout << std::endl;
         bool flag = true;
         while (flag)

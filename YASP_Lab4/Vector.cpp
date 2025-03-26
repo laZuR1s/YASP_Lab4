@@ -21,7 +21,7 @@ void VECTOR::print(std::ostream& stream)
 {
     for (int a : vector)
         stream << a << " ";
-    std::cout << std::endl;
+    stream << std::endl;
 }
 
 
@@ -42,7 +42,7 @@ void VECTOR::fill(std::fstream& file)
 
 std::vector<int> VECTOR::modify_for(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-    std::vector<int> res;
+    std::vector<int> res; // выделить память (distance(start, end))
     int first = (*start) * (*start);
     for (std::vector<int>::iterator ptr = start; ptr != end; ++ptr)
     {
@@ -54,7 +54,7 @@ std::vector<int> VECTOR::modify_for(std::vector<int>::iterator start, std::vecto
 
 std::vector<int> VECTOR::modify_transform(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-    std::vector<int> res(start, end);
+    std::vector<int> res(start, end); // создаем такого размера пустой (distance(start, end))
     int first = (*start) * (*start);
     std::transform(start, end, res.begin(), [&first](int x) { return sqrt((x) * (x)+first); });
     return res;
@@ -62,7 +62,7 @@ std::vector<int> VECTOR::modify_transform(std::vector<int>::iterator start, std:
 
 std::vector<int> VECTOR::modify_foreach(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-    std::vector<int> res;
+	std::vector<int> res; // выделить память (distance(start, end))
     int first = (*start) * (*start);
     std::for_each(start, end, [&res, &first](int x) { res.push_back(sqrt((x) * (x)+first)); });
     return res;
